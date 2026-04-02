@@ -1,5 +1,6 @@
 import { useApp } from '../context/AppContext';
 import { KPICard, ProspectoCard, formatCOP, etapaInfo } from '../components/UI';
+import HamburgerMenu from '../components/HamburgerMenu';
 
 export default function DashboardScreen() {
   const { currentUser, visibleProspectos, diasSinActividad, navigate, actividades } = useApp();
@@ -39,14 +40,7 @@ export default function DashboardScreen() {
               Hola, {currentUser.nombre.split(' ')[0]} 👋
             </div>
           </div>
-          <div style={{
-            width: 42, height: 42, borderRadius: 14,
-            background: 'linear-gradient(135deg,var(--primary),var(--primary-dark))',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontFamily: 'Outfit', fontWeight: 700, fontSize: 15, color: '#fff'
-          }}>
-            {currentUser.avatar}
-          </div>
+          <HamburgerMenu />
         </div>
         <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>
           Martes, 1 abril 2026
