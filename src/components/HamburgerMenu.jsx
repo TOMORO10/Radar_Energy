@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useApp } from '../context/AppContext';
 
 const ROL_META = {
-  asesor:   { icon: '🧑‍💼', label: 'Asesor Comercial', color: 'var(--primary)' },
-  director: { icon: '📊',   label: 'Director Comercial', color: '#3B82F6' },
-  admin:    { icon: '⚙️',   label: 'Administrador', color: '#8B5CF6' },
+  asesor:   { icon: '🧑‍💼', label: 'Asesor Comercial',  color: '#61A045' },
+  director: { icon: '📊',   label: 'Director Comercial', color: '#2563EB' },
+  admin:    { icon: '⚙️',   label: 'Administrador',      color: '#7C3AED' },
 };
 
 export default function HamburgerMenu() {
@@ -22,29 +22,18 @@ export default function HamburgerMenu() {
         style={{
           display: 'flex', flexDirection: 'column', alignItems: 'center',
           justifyContent: 'center', gap: 5, padding: '8px 10px',
-          background: 'var(--surface-2)', border: '1px solid var(--border)',
-          borderRadius: 14, cursor: 'pointer', color: 'var(--text)',
+          background: '#FFFFFF', border: '1.5px solid #E8E8E8',
+          borderRadius: 14, cursor: 'pointer',
           position: 'relative',
+          boxShadow: '0 1px 4px rgba(0,0,0,.06)',
         }}
       >
-        <span style={{
-          width: 20, height: 2,
-          background: 'var(--text)', borderRadius: 2, display: 'block',
-          transition: 'transform .2s',
-        }} />
-        <span style={{
-          width: 14, height: 2,
-          background: 'var(--primary)', borderRadius: 2, display: 'block',
-        }} />
-        <span style={{
-          width: 20, height: 2,
-          background: 'var(--text)', borderRadius: 2, display: 'block',
-        }} />
-        {/* Role indicator dot */}
+        <span style={{ width: 20, height: 2, background: '#3A3A3A', borderRadius: 2, display: 'block' }} />
+        <span style={{ width: 14, height: 2, background: '#61A045', borderRadius: 2, display: 'block' }} />
+        <span style={{ width: 20, height: 2, background: '#3A3A3A', borderRadius: 2, display: 'block' }} />
         <span style={{
           position: 'absolute', top: 7, right: 7, width: 7, height: 7,
           borderRadius: '50%', background: meta.color,
-          boxShadow: `0 0 6px ${meta.color}`,
         }} />
       </button>
 
@@ -55,8 +44,8 @@ export default function HamburgerMenu() {
           onClick={() => setOpen(false)}
           style={{
             position: 'fixed', inset: 0,
-            background: 'rgba(0,0,0,.55)',
-            backdropFilter: 'blur(4px)',
+            background: 'rgba(0,0,0,.25)',
+            backdropFilter: 'blur(2px)',
             zIndex: 9000,
             animation: 'fadeIn .2s ease',
           }}
@@ -67,8 +56,9 @@ export default function HamburgerMenu() {
       <div style={{
         position: 'fixed', top: 0, right: 0,
         width: '78vw', maxWidth: 300, height: '100%',
-        background: 'var(--surface)',
-        borderLeft: '1px solid var(--border)',
+        background: '#FFFFFF',
+        borderLeft: '1px solid #E8E8E8',
+        boxShadow: '-4px 0 24px rgba(0,0,0,.10)',
         zIndex: 9001,
         transform: open ? 'translateX(0)' : 'translateX(105%)',
         transition: 'transform .3s cubic-bezier(.4,0,.2,1)',
@@ -77,12 +67,12 @@ export default function HamburgerMenu() {
       }}>
         {/* Header stripe */}
         <div style={{
-          background: 'linear-gradient(135deg, var(--primary-dark), var(--primary))',
+          background: 'linear-gradient(135deg, #61A045, #B8D445)',
           padding: '48px 20px 24px',
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
-              <div style={{ fontSize: 11, color: 'rgba(255,255,255,.7)', fontWeight: 500, letterSpacing: 1, textTransform: 'uppercase' }}>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,.85)', fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase' }}>
                 Sesión activa
               </div>
               <div style={{ fontFamily: 'Outfit', fontSize: 20, fontWeight: 800, color: '#fff', marginTop: 4 }}>
@@ -90,24 +80,25 @@ export default function HamburgerMenu() {
               </div>
               <div style={{
                 marginTop: 6, display: 'inline-flex', alignItems: 'center', gap: 5,
-                background: 'rgba(255,255,255,.15)', borderRadius: 20,
-                padding: '3px 10px', fontSize: 12, color: '#fff',
+                background: 'rgba(255,255,255,.3)', borderRadius: 20,
+                padding: '3px 10px', fontSize: 12, color: '#fff', fontWeight: 600,
               }}>
                 {meta.icon} {meta.label}
               </div>
             </div>
             <button onClick={() => setOpen(false)} style={{
-              background: 'rgba(255,255,255,.2)', border: 'none', color: '#fff',
+              background: 'rgba(255,255,255,.3)', border: 'none', color: '#fff',
               width: 32, height: 32, borderRadius: 10, cursor: 'pointer',
-              fontSize: 18, display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: 20, display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontWeight: 700,
             }}>×</button>
           </div>
         </div>
 
         {/* Users section */}
-        <div style={{ padding: '20px 16px 0', flex: 1, overflowY: 'auto' }}>
+        <div style={{ padding: '20px 16px 0', flex: 1, overflowY: 'auto', background: '#F7F8F6' }}>
           <div style={{
-            fontSize: 10, color: 'var(--text-muted)', fontWeight: 700,
+            fontSize: 10, color: '#79797A', fontWeight: 700,
             letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 12,
           }}>
             Cambiar Perfil / Rol
@@ -125,38 +116,33 @@ export default function HamburgerMenu() {
                   style={{
                     display: 'flex', alignItems: 'center', gap: 12,
                     padding: '12px 14px', borderRadius: 14, cursor: 'pointer',
-                    border: isActive ? `1.5px solid ${m.color}` : '1px solid var(--border)',
-                    background: isActive ? `${m.color}18` : 'var(--surface-2)',
-                    textAlign: 'left', color: 'var(--text)',
-                    transition: 'background .15s, border-color .15s',
+                    border: isActive ? `1.5px solid ${m.color}` : '1px solid #E8E8E8',
+                    background: isActive ? `${m.color}14` : '#FFFFFF',
+                    textAlign: 'left',
+                    transition: 'all .15s',
+                    boxShadow: isActive ? `0 2px 8px ${m.color}22` : '0 1px 3px rgba(0,0,0,.04)',
                   }}
                 >
                   {/* Avatar */}
                   <div style={{
                     width: 40, height: 40, borderRadius: 12, flexShrink: 0,
-                    background: isActive
-                      ? `linear-gradient(135deg, ${m.color}, ${m.color}99)`
-                      : 'var(--surface)',
+                    background: isActive ? `linear-gradient(135deg, ${m.color}, ${m.color}cc)` : '#F0F0F0',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontFamily: 'Outfit', fontWeight: 700, fontSize: 14,
-                    color: isActive ? '#fff' : 'var(--text-muted)',
-                    border: `1px solid ${isActive ? m.color : 'var(--border)'}`,
+                    color: isActive ? '#fff' : '#79797A',
+                    border: `1px solid ${isActive ? m.color : '#E8E8E8'}`,
                   }}>{u.avatar}</div>
 
                   {/* Info */}
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontWeight: 600, fontSize: 14, lineHeight: 1.2 }}>{u.nombre}</div>
-                    <div style={{ fontSize: 12, color: m.color, marginTop: 2 }}>
+                    <div style={{ fontWeight: 600, fontSize: 14, lineHeight: 1.2, color: '#1A1A1A' }}>{u.nombre}</div>
+                    <div style={{ fontSize: 12, color: m.color, marginTop: 2, fontWeight: 500 }}>
                       {m.icon} {m.label}
                     </div>
                   </div>
 
                   {isActive && (
-                    <div style={{
-                      width: 8, height: 8, borderRadius: '50%',
-                      background: m.color, flexShrink: 0,
-                      boxShadow: `0 0 6px ${m.color}`,
-                    }} />
+                    <div style={{ width: 8, height: 8, borderRadius: '50%', background: m.color, flexShrink: 0 }} />
                   )}
                 </button>
               );
@@ -166,8 +152,8 @@ export default function HamburgerMenu() {
           {/* Info note */}
           <div style={{
             marginTop: 20, padding: '10px 12px', borderRadius: 10,
-            background: 'var(--surface-2)', border: '1px solid var(--border)',
-            fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6,
+            background: '#EDF5C5', border: '1px solid #B8D445',
+            fontSize: 11, color: '#61A045', lineHeight: 1.6, fontWeight: 500,
           }}>
             💡 <strong>Asesor:</strong> ve solo sus prospectos.<br />
             📊 <strong>Director / Admin:</strong> ve todo el equipo.
@@ -176,8 +162,9 @@ export default function HamburgerMenu() {
 
         {/* Version footer */}
         <div style={{
-          padding: '16px 20px', borderTop: '1px solid var(--border)',
-          fontSize: 11, color: 'var(--text-muted)', textAlign: 'center',
+          padding: '16px 20px', borderTop: '1px solid #E8E8E8',
+          fontSize: 11, color: '#ADADAD', textAlign: 'center',
+          background: '#FFFFFF',
         }}>
           ⚡ Radar Energy 4.0 · v0.1-mockup
         </div>
