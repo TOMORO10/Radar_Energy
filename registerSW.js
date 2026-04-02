@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/Radar_Energy/sw.js', { scope: '/Radar_Energy/' })})}
